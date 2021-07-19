@@ -1,0 +1,39 @@
+version: '3.3'
+networks: 
+    rabbitmq_rabbit:
+        external: true
+
+services:
+
+    producer_node:
+        build: 
+            context: "./producer/"
+        container_name: P_NODE_APP
+        volumes: 
+            - "./producer:/usr/src/app:rw"
+        ports: 
+            - 5000:5000
+        networks: 
+            - rabbitmq_rabbit
+
+    consumer_node:
+        build: 
+            context: "./consumer_node/"
+        container_name: R_NODE_APP
+        volumes: 
+            - "./consumer_node:/usr/src/app:rw"
+        ports: 
+            - 5001:5001
+        networks: 
+            - rabbitmq_rabbit
+
+    consumer_php:
+        build: 
+            context: "./consumer_php/"
+        container_name: R_PHP_APP
+        volumes: 
+            - "./consumer_php:/usr/src/app:rw"
+        ports: 
+            - 5002:5002
+        networks: 
+            - rabbitmq_rabbit

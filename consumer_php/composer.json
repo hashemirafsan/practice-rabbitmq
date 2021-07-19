@@ -1,0 +1,17 @@
+{
+    "name": "hashemirafsan/consumer_php",
+    "autoload": {
+        "psr-4": {
+            "Hashemirafsan\\ConsumerPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hashemi Rafsan",
+            "email": "rafsanhashemi@gmail.com"
+        }
+    ],
+    "require": {
+        "php-amqplib/php-amqplib": ">=3.0"
+    }
+}
